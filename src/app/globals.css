@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-olive-400: #8fae4a;
+  --color-forest-950: #0f1f14;
+  --color-forest-900: #16301f;
+  --color-forest-800: #1f4429;
+  --color-leaf-600: #4d7c3f;
+  --color-sand-100: #f6f3ea;
+  --color-sand-50: #fbf9f3;
+  --color-clay-500: #b5652f;
+  --color-clay-600: #9a5327;
+  --font-sans: var(--font-plus-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-sand-50, #fbf9f3);
+  color: var(--color-forest-950, #0f1f14);
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--color-leaf-600, #4d7c3f);
+  color: #ffffff;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(28px);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal="2"] {
+  transition-delay: 0.1s;
+}
+
+[data-reveal="3"] {
+  transition-delay: 0.2s;
+}
+
+[data-reveal="4"] {
+  transition-delay: 0.3s;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1.5%);
+  }
+}
+
+.kenburns {
+  animation: 9s ease-out both kenburns;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transition: none;
+    transform: none;
+  }
+  .kenburns {
+    animation: none;
+  }
+}
