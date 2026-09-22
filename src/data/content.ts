@@ -8,6 +8,7 @@ export const NAV_LINKS: NavLink[] = [
   { to: '/program', label: 'Program' },
   { to: '/about', label: 'About Us' },
   { to: '/events', label: 'Events' },
+  { to: '/gallery', label: 'Gallery' },
   { to: '/stories', label: "Survivors' Stories" },
 ];
 
@@ -22,26 +23,26 @@ export interface HeroSlide {
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    img: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80',
-    eyebrow: "I Am My Sister's Keeper",
-    title: 'Find safety, support, and a new beginning.',
-    text: 'Restoration Diversion Services walks alongside survivors of human trafficking in Compton, CA — with shelter, counseling, legal aid, and a community that believes in their freedom.',
+    img: '/images/hero-dropin-center.jpg',
+    eyebrow: 'Restore • Empower • Transform',
+    title: 'From the Blade to a different future.',
+    text: 'Located on Long Beach Boulevard in the heart of the Blade, RDS meets women where they are — providing safety, healing, sisterhood, and a pathway from crisis to independence.',
     primary: { label: 'Donate Now', href: '#donate' },
     secondary: { label: 'Explore Our Programs', to: '/program' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80',
-    eyebrow: 'Since 2009',
-    title: 'A trauma-informed path from crisis to independence.',
-    text: 'From our Drop-In Center to the Survivor Diversion Program, every service we offer meets survivors exactly where they are — with dignity, patience, and real resources.',
+    img: '/images/hero-empowerment.jpg',
+    eyebrow: 'We Rise Together',
+    title: 'From surviving to thriving.',
+    text: 'Leaving trafficking is not the end of the journey — it is often the beginning. RDS walks alongside women through outreach, crisis intervention, stabilization, healing, education, employment, and independence.',
     primary: { label: 'Meet Our Team', to: '/about' },
-    secondary: { label: 'See Our Story', to: '/about' },
+    secondary: { label: 'Our Sisterhood', to: '/stories' },
   },
   {
-    img: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80',
-    eyebrow: 'Voices of Resilience',
-    title: 'Every survivor has a story worth hearing.',
-    text: 'Read first-hand reflections from survivors who found stability, healing, and a renewed sense of hope through RDS.',
+    img: '/images/hero-sisterhood.jpg',
+    eyebrow: 'One Sisterhood • One Purpose • One Heart',
+    title: 'Trafficking creates isolation. RDS creates connection.',
+    text: 'Through the RDS Sisterhood, women encourage one another, celebrate accomplishments, and reach back to support women who are newer to the journey. You are not alone.',
     primary: { label: 'Read Their Stories', to: '/stories' },
     secondary: { label: 'Upcoming Events', to: '/events' },
   },
@@ -53,32 +54,32 @@ export interface StatItem {
 }
 
 export const HOME_STATS: StatItem[] = [
-  { value: '2009', label: 'Serving Compton since' },
-  { value: '6', label: 'Core support programs' },
-  { value: '24/7', label: 'Confidential drop-in access' },
-  { value: '100+', label: 'Survivors supported yearly' },
+  { value: '233+', label: 'Unduplicated survivors served' },
+  { value: '905+', label: 'Total participant visits' },
+  { value: '120', label: 'Walk-in visits per month' },
+  { value: '28', label: 'Exits or rescues from trafficking' },
 ];
 
 export const HOME_VALUES = [
   {
     title: 'Trauma-Informed',
     icon: 'heartHand',
-    text: "Every interaction is grounded in empathy, safety, and respect for each survivor's pace.",
+    text: "Every interaction is grounded in empathy, safety, and respect for each woman's pace and choices.",
   },
   {
-    title: 'Holistic Care',
+    title: 'Whole Woman',
     icon: 'homeHeart',
-    text: 'We treat the whole person — housing, health, legal standing, and wellbeing together.',
+    text: 'We address the whole woman — not simply what happened to her. Housing, health, safety, and emotional wellness together.',
   },
   {
-    title: 'Community Partnership',
+    title: 'Community-Driven',
     icon: 'compass',
-    text: 'We work alongside law enforcement, faith groups, colleges, and local businesses.',
+    text: 'No one organization can meet every need of a survivor. RDS serves as a bridge, connecting each woman with a larger network.',
   },
   {
-    title: 'Dignity First',
-    icon: 'heartHand',
-    text: 'Survivors are not defined by their trauma — we help them rebuild lives of purpose.',
+    title: 'Sisterhood',
+    icon: 'users',
+    text: 'We Rise Together. We Heal Together. We Win Together. Replacing isolation with connection, belonging, and encouragement.',
   },
 ];
 
@@ -96,93 +97,92 @@ export interface ProgramItem {
 export const PROGRAMS: ProgramItem[] = [
   {
     title: 'Drop-In Center',
-    tag: 'The Blade, Compton',
+    tag: '208 N. Long Beach Blvd, Compton',
     icon: 'building',
-    img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80',
-    img2: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=80',
-    text: 'Located on Long Beach Boulevard, our Drop-In Center is the heart of RDS — a safe refuge for survivors navigating "The Blade." Anyone can walk in for a warm or cold drink, a snack, a hot shower, clean clothes, or simply a place to rest without judgment.',
-    short: 'A safe refuge on Long Beach Boulevard offering rest, showers, warm meals, and a moment of peace for survivors in the community.',
+    img: '/images/hero-dropin-center.jpg',
+    img2: '/gallery/RDSMeeting10.JPG',
+    text: 'Located on Long Beach Boulevard in the heart of the Blade, the RDS Drop-In Center is a safe, welcoming, trauma-informed, nonjudgmental space. A woman can walk through our doors into an environment created to offer safety, dignity, resources, and hope. A hygiene bag can become the beginning of a relationship — and that relationship can lead to housing, counseling, education, employment, and independence.',
+    short: 'A safe refuge on Long Beach Boulevard where a first visit for food and rest can become the beginning of a whole new future.',
     points: [
-      'Rest, restrooms, and showers',
-      'Warm meals and snacks',
-      'Hygiene and safety supplies',
+      'Food, clothing, and hygiene supplies',
+      'Safety tools and personal safety resources',
+      'A quiet place to sit and someone willing to listen',
       'A judgment-free, trauma-informed space',
     ],
   },
   {
-    title: 'Survivor Diversion Program',
-    tag: 'Formerly the Prostitution Diversion Program',
-    icon: 'users',
-    img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80',
-    img2: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
-    text: 'SDP is a court- and non-court-ordered pathway for individuals arrested on trafficking-related charges. Through our "Ending The Game" curriculum, participants join group sessions over 1 to 18 weeks focused on mentoring, education, and building a self-sufficient future.',
-    short: 'A court- and non-court-ordered path away from exploitation, built on mentorship, education, and self-sufficiency.',
-    points: [
-      '1–18 week structured curriculum',
-      '"Ending The Game" group sessions',
-      'Mentorship from survivor-informed staff',
-      'A record of exiting exploitation for good',
-    ],
-  },
-  {
-    title: 'Supportive Services',
-    tag: 'For SDP participants & the community',
+    title: 'Crisis Intervention & Case Management',
+    tag: 'Individualized support',
     icon: 'heartShield',
-    img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80',
-    img2: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=600&q=80',
-    text: 'Open to SDP participants, drop-in clients, and community referrals, our supportive services meet survivors wherever they are in their healing — mentally, physically, and practically.',
-    short: 'Counseling, job readiness, GED prep, parenting support, and housing referrals for lasting stability.',
+    img: '/images/hero-case-management.jpg',
+    img2: '/gallery/RDSMeeting14.JPG',
+    text: 'RDS provides individualized support based upon each woman\'s needs and goals. We don\'t just ask, "What happened to you?" We help determine, "What do you need now, and where do you want to go next?" This includes exit assistance, safety planning, emergency housing, relocation, transportation, advocacy, and ongoing follow-up.',
+    short: 'We help address tonight\'s crisis while working toward tomorrow\'s stability.',
     points: [
-      'Mental health & substance abuse counseling',
-      'Job readiness & GED preparation',
-      'Anger management & domestic violence support',
-      'Parenting assistance & computer access',
-      'Housing referrals & STI workshops',
+      'Human trafficking exit assistance',
+      'Individualized case management & safety planning',
+      'Emergency housing & relocation',
+      'Resource navigation & public benefits advocacy',
     ],
   },
   {
-    title: 'Temporary Assistance',
-    tag: 'Multi-county housing partnerships',
-    icon: 'briefcase',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
-    img2: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80',
-    text: 'When survivors need shelter immediately, RDS coordinates with sheltering programs across multiple counties to place individuals in safe, transitional housing while a longer-term plan takes shape.',
-    short: 'Emergency and transitional housing partnerships across multiple counties for survivors who need shelter now.',
+    title: 'Mental Health & The Serenity Room',
+    tag: 'Trauma-informed emotional support',
+    icon: 'heartHand',
+    img: '/images/hero-serenity-room.jpg',
+    img2: '/gallery/RDSMeeting19.JPG',
+    text: 'The Serenity Room is a private, peaceful space at the Drop-In Center where participants receive trauma-informed mental-health and emotional support in an environment where they have already developed trust. Trauma does not automatically end when exploitation ends — RDS is committed to addressing the whole woman.',
+    short: 'A private, peaceful space for trauma-informed counseling where trust has already been built.',
     points: [
-      'Emergency housing placement',
-      'Coordination across county lines',
-      'Bridge to long-term housing solutions',
+      'Onsite counseling in the Serenity Room',
+      'Trauma-informed emotional support',
+      'Behavioral-health provider connections',
+      'Peer support and group sessions',
+    ],
+  },
+  {
+    title: 'Housing & Basic Needs',
+    tag: 'From tonight\'s crisis to tomorrow\'s stability',
+    icon: 'homeHeart',
+    img: '/images/hero-housing-safety.jpg',
+    img2: '/gallery/RDSMeeting20.JPG',
+    text: 'RDS assists women experiencing immediate crisis with emergency hotel stays when a woman decides to leave trafficking — she never has to go back out again. We provide shelter connections, transitional housing, relocation assistance, and longer-term housing navigation.',
+    short: 'Immediate hotel stays when a woman decides to leave. She never has to go back out again.',
+    points: [
+      'Emergency hotel assistance',
+      'Safe shelter placement & relocation',
+      'Transitional & longer-term housing navigation',
       'Ongoing case management support',
     ],
   },
   {
-    title: 'Legal Advocacy',
-    tag: 'Compton D.A. & Victim Compensation Board',
-    icon: 'scale',
-    img: "data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'1000'%20height%3D'667'%20viewBox%3D'0%200%201000%20667'%3E%0A%20%20%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D'g'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D'0'%20stop-color%3D'%231f4429'%2F%3E%3Cstop%20offset%3D'1'%20stop-color%3D'%2316301f'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D'1000'%20height%3D'667'%20fill%3D'url(%23g)'%2F%3E%0A%20%20%20%20%20%20%3Cg%20fill%3D'none'%20stroke%3D'%238fae4a'%20stroke-width%3D'7'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%20transform%3D'translate(500%20130)'%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M0%200%20v300'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M-70%20300%20h140'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M-95%20320%20q95%20-40%20190%200'%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D'0'%20cy%3D'-8'%20r%3D'12'%20fill%3D'%238fae4a'%20stroke%3D'none'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M-180%2030%20h360'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M-180%2030%20l-55%20120%20M-180%2030%20l55%20120%20M-235%20150%20a55%2040%200%200%200%20110%200'%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M180%2030%20l-55%20120%20M180%2030%20l55%20120%20M125%20150%20a55%2040%200%200%200%20110%200'%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E",
+    title: 'Education & Employment',
+    tag: 'Compton College partnership',
+    icon: 'briefcase',
+    img: '/images/hero-education.jpg',
     img2: '',
-    text: 'Our team helps survivors navigate the legal system — from clearing trafficking-related charges to filing for victim compensation — with a case manager by their side at every hearing.',
-    short: "Navigating charges, records, and victim compensation claims alongside the Compton D.A.'s office.",
+    text: 'RDS connects participants with colleges, GED resources, FAFSA navigation, and paid internship opportunities. Through our close relationship with Compton College, each woman receives one-on-one enrollment counseling, financial counseling, and student-support programs. Economic independence is also a form of safety.',
+    short: 'GED prep, college enrollment through Compton College, job readiness, paid internships, and career pathways.',
     points: [
-      'Record & charge navigation support',
-      'California Victim Compensation Board filings',
-      'Court accompaniment',
-      'Protective order assistance',
+      'GED preparation & college enrollment',
+      'FAFSA & financial aid navigation',
+      'Job readiness, résumés & interview prep',
+      'Paid internships & work experience',
     ],
   },
   {
-    title: 'Community Outreach & Awareness',
-    tag: 'Prevention & partnership',
+    title: 'Street Outreach',
+    tag: 'Meeting women where they are',
     icon: 'compass',
-    img: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1000&q=80',
-    img2: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80',
-    text: 'RDS trains local businesses, schools, and faith communities to recognize the signs of trafficking, while running street outreach to connect survivors with our services before crisis hits.',
-    short: 'Training, street outreach, and partnerships that help our community spot and prevent trafficking early.',
+    img: '/images/hero-street-outreach.jpg',
+    img2: '/gallery/RDSMeeting17.JPG',
+    text: 'Not every woman experiencing exploitation is ready to walk into a service agency. RDS conducts outreach in high-risk areas, providing food, hygiene products, clothing, safety resources, trafficking information, and pathways into services. The message is: "When you\'re ready, there is somewhere you can go."',
+    short: 'Outreach in high-risk areas with one message: when you\'re ready, there is somewhere you can go.',
     points: [
-      'Trafficking-awareness trainings',
-      'Street & night outreach teams',
-      'School & faith-community partnerships',
-      'Anti-trafficking task force participation',
+      'Outreach in high-risk areas along the Blade',
+      'Food, hygiene products & safety resources',
+      'Trafficking information & crisis resources',
+      'Compton Human Trafficking Task Force leadership',
     ],
   },
 ];
@@ -252,33 +252,34 @@ export const HOME_TESTIMONIALS = [
 
 export const BLOG_ARTICLES = [
   {
-    title: 'Recognizing the Signs: A Guide for Community Members',
-    tag: 'Awareness',
-    img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=700&q=80',
+    title: 'More Than a Makeover: A Reflection of the Woman Within',
+    tag: 'Press',
+    img: '/gallery/RDSMeeting23.jpg',
+    href: 'https://citypridemagazine.com/more-than-a-makeover-a-reflection-of-the-woman-within/',
   },
   {
-    title: 'Inside "Ending The Game": What Our Diversion Curriculum Teaches',
-    tag: 'Programs',
-    img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=80',
+    title: 'Compton Human Trafficking Task Force: Recognize, Respond, Restore',
+    tag: 'Task Force',
+    img: '/gallery/RDSMeeting12.jpg',
   },
   {
-    title: 'Five Ways to Support Survivors Without Saying a Word',
+    title: 'The RDS Sisterhood: From Isolation to Connection',
     tag: 'Community',
-    img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80',
+    img: '/images/hero-sisterhood.jpg',
   },
 ];
 
 export const PROGRAM_STATS: StatItem[] = [
-  { value: '6', label: 'Interconnected programs' },
-  { value: '1–18', label: 'Week diversion curriculum' },
-  { value: '3+', label: 'Counties in housing network' },
+  { value: '233+', label: 'Survivors served to date' },
+  { value: '120', label: 'Walk-in visits per month' },
+  { value: '28', label: 'Exits from trafficking' },
   { value: '0', label: 'Judgment at our door' },
 ];
 
 export const ABOUT_STATS: StatItem[] = [
-  { value: '15+', label: 'Years of continuous service' },
-  { value: '1,000+', label: 'Drop-in visits every year' },
-  { value: '85%', label: 'Diversion program completion' },
+  { value: '17+', label: 'Years of continuous service' },
+  { value: '905+', label: 'Total participant visits' },
+  { value: '233+', label: 'Unduplicated survivors served' },
   { value: '40+', label: 'Community partners' },
 ];
 
@@ -286,22 +287,22 @@ export const ABOUT_VALUES = [
   {
     title: 'Trauma-Informed',
     icon: 'heartHand',
-    text: "Every interaction is grounded in empathy, safety, and respect for each survivor's pace and choices.",
+    text: "Every interaction is grounded in empathy, safety, and respect for each woman's pace and choices.",
   },
   {
-    title: 'Holistic Care',
+    title: 'Whole Woman',
     icon: 'homeHeart',
-    text: 'We treat the whole person — housing, health, legal standing, and emotional wellbeing together.',
+    text: 'We address the whole woman — not simply what happened to her. Housing, health, safety, and emotional wellness together.',
   },
   {
     title: 'Community Partnership',
     icon: 'users',
-    text: 'We work alongside law enforcement, faith groups, colleges, and businesses to close gaps in care.',
+    text: 'No one organization can meet every need. RDS serves as a bridge, connecting each woman with the larger community network.',
   },
   {
-    title: 'Dignity First',
+    title: 'From Surviving to Thriving',
     icon: 'plant',
-    text: 'Survivors are not defined by their trauma. We help them rebuild lives of purpose and resilience.',
+    text: 'Our model follows the full continuum: Outreach → Crisis → Safety → Stabilization → Healing → Sisterhood → Education → Employment → Independence → Leadership.',
   },
 ];
 
@@ -314,22 +315,22 @@ export interface TeamMember {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Pamela A. Bryant',
-    role: 'Board President',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Guides RDS strategy and community partnerships with two decades of nonprofit leadership.',
+    name: 'Pamela Bryant',
+    role: 'Executive Director',
+    img: '/gallery/RDSMeeting.JPG',
+    bio: 'Leads the RDS mission and community partnerships, guiding the organization\'s strategy and vision for survivor empowerment.',
   },
   {
-    name: 'Deatra Handy',
+    name: 'Deatra Handy, MPA',
     role: 'Program Director',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    bio: 'Oversees every RDS program and personally mentors participants through the Diversion Program.',
+    img: '/gallery/RDSMeeting13.JPG',
+    bio: 'Oversees every RDS program, personally mentors participants, and coordinates the continuum of services from crisis to independence.',
   },
   {
-    name: 'Keyla Brown',
-    role: 'Lead Case Manager',
-    img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
-    bio: 'Walks with each survivor one-on-one — from first intake to independent living.',
+    name: 'Abel Prudhomme',
+    role: 'CHTTF Chairperson & RDS Program Director',
+    img: '/gallery/RDSMeeting15.JPG',
+    bio: 'Chairs the Compton Human Trafficking Task Force and serves as RDS Program Director, uniting survivors, law enforcement, and community partners.',
   },
 ];
 
@@ -368,11 +369,11 @@ export const FAQS: FAQItem[] = [
 
 export const FEATURED_EVENT = {
   title: 'Compton Human Trafficking Task Force Meeting',
-  type: 'Collaborative Community Meeting',
-  date: 'Third Thursday · Monthly',
-  place: 'Compton City Hall, Compton, CA',
-  text: 'Join us as community organizations, law enforcement, and service providers unite to collaborate, share updates, and strengthen our collective response to human trafficking in Compton. Bring resource materials, program updates, or informational flyers to share.',
-  img: 'https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=1000&q=80',
+  type: 'Recognize, Respond, Restore',
+  date: 'July 23, 2026 · Sponsored by RDS',
+  place: 'Compton, CA',
+  text: 'The Compton Human Trafficking Task Force (CHTTF) convened on July 23, 2026, bringing together survivors, community organizations, service providers, law enforcement, advocates, and other partners committed to preventing human trafficking and supporting survivors. The meeting opened with a welcome from Pamela Bryant, Executive Director of RDS, followed by prayer led by Abel Prudhomme, CHTTF Chairperson and RDS Program Director. A highlight was Survivor Voices, featuring De\'Aija, who courageously shared their experiences, progress, and hope for the future. A central message: everyone has a critical piece of the puzzle — and without your piece, the picture is not complete. When we put all of our pieces together, the picture we are creating is beautiful: a survivor who is no longer simply surviving, but healing, restored, empowered, independent, and thriving. Together, every piece matters. Together, we complete the picture.',
+  img: '/gallery/RDSMeeting9.jpg',
 };
 
 export const UPCOMING_EVENTS = [
@@ -432,17 +433,17 @@ export const WAYS_WE_GATHER = [
   {
     title: 'Task Force Meetings',
     icon: 'users',
-    text: 'Recurring gatherings uniting law enforcement, advocates, and service providers around a shared response to trafficking.',
+    text: 'RDS plays a leadership role in convening the CHTTF — bringing together survivors, service providers, law enforcement, and community leaders. Human trafficking is a community problem that requires a community response.',
   },
   {
-    title: 'Community Engagement',
-    icon: 'compass',
-    text: 'Outreach events and awareness nights that connect neighbors with RDS resources and education.',
-  },
-  {
-    title: 'Partner Collaborations',
+    title: 'Survivor Voices',
     icon: 'heartHand',
-    text: 'Joint initiatives with local organizations, shelters, colleges, and businesses working toward the same mission.',
+    text: 'Survivors courageously share their experiences, progress, and hope for the future. Their voices remind everyone why this collaborative work matters.',
+  },
+  {
+    title: 'Community Partnerships',
+    icon: 'compass',
+    text: 'No single organization can meet every need. When we put all of our pieces together, the picture we create is beautiful: a survivor who is healing, restored, empowered, and thriving.',
   },
 ];
 
@@ -451,70 +452,70 @@ export const PAST_EVENTS = [
     title: 'Human Trafficking Awareness Walk',
     date: 'January 2026',
     tag: 'Awareness',
-    img: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting7.jpg',
   },
   {
     title: 'Holiday Drive for Drop-In Guests',
     date: 'December 2025',
     tag: 'Community Drive',
-    img: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting24.JPG',
   },
   {
     title: 'Community Resource Fair',
     date: 'October 2025',
     tag: 'Outreach',
-    img: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting28.JPG',
   },
   {
     title: 'Back-to-School Supply Distribution',
     date: 'August 2025',
     tag: 'Community Drive',
-    img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting36.JPG',
   },
   {
     title: 'Survivor Leadership Retreat',
     date: 'June 2025',
     tag: 'Workshop',
-    img: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting30.JPG',
   },
   {
     title: 'Faith Community Partnership Breakfast',
     date: 'May 2025',
     tag: 'Partner Meeting',
-    img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting42.JPG',
   },
   {
     title: 'Night Outreach on The Blade',
     date: 'April 2025',
     tag: 'Outreach',
-    img: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=700&q=80',
+    img: '/images/hero-street-outreach.jpg',
   },
   {
     title: 'Annual Fundraising Gala',
     date: 'March 2025',
     tag: 'Fundraiser',
-    img: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=700&q=80',
+    img: '/gallery/RDSMeeting47.JPG',
   },
 ];
 
 export const EVENT_STATS: StatItem[] = [
-  { value: '30+', label: 'Community events each year' },
-  { value: '40+', label: 'Partner organizations' },
-  { value: '1,200+', label: 'Neighbors reached in 2025' },
-  { value: '12', label: 'Task force meetings annually' },
+  { value: '25', label: 'New participants enrolled (Summer 2026)' },
+  { value: '120', label: 'Walk-in visits per month' },
+  { value: '8', label: 'Emergency relocations (Summer 2026)' },
+  { value: '13', label: 'CalVCB referrals (Summer 2026)' },
 ];
 
 export const FEATURED_STORY = {
-  name: "Maria's Story",
-  tag: "From The Blade to a bachelor's degree",
-  img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=80',
-  quote: 'For the first time, someone saw me as a person with a future — not a case, not a charge, just me.',
-  text: 'Maria first walked into the Drop-In Center for a hot shower and a meal. She left with a case manager who never gave up on her. Over eighteen months, RDS helped her clear trafficking-related charges, find transitional housing, and enroll at Compton College. Today she is months from her degree — and mentors other survivors walking the same road.',
+  name: "A Survivor's Journey",
+  tag: 'From the Blade to a different future',
+  img: '/images/hero-empowerment.jpg',
+  quote: 'I\'ve been where you are. You can make it too.',
+  text: 'She first walked into the Drop-In Center for a hot shower and a meal. She left with a case manager who never gave up on her. Over the following months, RDS helped her with emergency housing, safety planning, and enrollment at Compton College with one-on-one counseling and FAFSA support. Through the Sisterhood, she found women who understood. Today she reaches back — mentoring other survivors walking the same road. Her past does not determine her future.',
   milestones: [
     'Safe housing secured',
-    'Charges cleared with legal advocacy',
-    'Enrolled in college',
-    'Now a peer mentor',
+    'Enrolled at Compton College',
+    'Financial empowerment & credit repair',
+    'Now a peer mentor in the Sisterhood',
   ],
 };
 
@@ -523,7 +524,7 @@ export const SURVIVOR_STORIES = [
     id: '208-1',
     theme: 'Finding the door',
     icon: 'building',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    img: '/gallery/RDSMeeting5.JPG',
     quote: 'RDS has been a tremendous source of support throughout this journey.',
     text: "After years of feeling invisible, I found the Drop-In Center almost by accident. What I found there was a team that didn't ask me to explain myself before helping — just a hot meal, a safe seat, and people who listened. That first visit turned into case management, then counseling, then a job.",
   },
@@ -531,7 +532,7 @@ export const SURVIVOR_STORIES = [
     id: '208-3',
     theme: 'A future worth building',
     icon: 'plant',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
+    img: '/gallery/RDSMeeting6.JPG',
     quote: "The team at RDS has given me something I hadn't felt in years — hope.",
     text: "I entered the Survivor Diversion Program not really believing anything would change. Group sessions with people who understood — really understood — shifted something in me. My case manager helped me get my GED and find housing. I'm building a future instead of just surviving the day.",
   },
@@ -539,7 +540,7 @@ export const SURVIVOR_STORIES = [
     id: '208-4',
     theme: 'Safe at last',
     icon: 'heartHand',
-    img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    img: '/gallery/RDSMeeting21.JPG',
     quote: 'Today, I am blessed, happy, and safe, thanks to the unwavering support of the RDS team.',
     text: "Escaping wasn't one moment — it took several tries and a lot of fear. What made the difference was having somewhere to go that didn't feel like another system to survive. RDS helped me navigate legal paperwork, find temporary housing, and slowly rebuild trust in myself and in other people.",
   },
@@ -547,7 +548,7 @@ export const SURVIVOR_STORIES = [
     id: '208-5',
     theme: 'Standing on firmer ground',
     icon: 'briefcase',
-    img: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=400&q=80',
+    img: '/gallery/RDSMeeting25.JPG',
     quote: 'With their help, support, and resources, I am now standing on firmer ground.',
     text: 'I came to RDS with nothing but the clothes I was wearing. The supportive services program connected me to counseling, parenting resources, and eventually a path back to stable work. I still have hard days, but I have a foundation now — and a team that still checks in.',
   },
@@ -555,24 +556,24 @@ export const SURVIVOR_STORIES = [
 
 export const BEHIND_STORY_STEPS = [
   {
+    icon: 'compass',
+    title: 'Outreach on the Blade',
+    text: 'Someone from RDS reaches a woman where she is — with food, hygiene supplies, safety resources, and the message: "When you\'re ready, there is somewhere you can go."',
+  },
+  {
+    icon: 'building',
+    title: 'The Drop-In Center',
+    text: 'She walks through the doors into safety, dignity, and hope. A hygiene bag can become the beginning of a relationship.',
+  },
+  {
     icon: 'heartHand',
-    title: 'First Contact',
-    text: 'A survivor reaches out or walks into the Drop-In Center — no referral, no judgment.',
+    title: 'Stabilization & the Serenity Room',
+    text: 'Case management, housing, safety planning, and trauma-informed mental health support in a space where trust has already been built.',
   },
   {
-    icon: 'scale',
-    title: 'Advocacy & Safety',
-    text: 'We address immediate needs: shelter, legal navigation, and a dedicated case manager.',
-  },
-  {
-    icon: 'plant',
-    title: 'Rebuilding',
-    text: 'Counseling, job readiness, GED prep, and housing move each person toward stability.',
-  },
-  {
-    icon: 'briefcase',
-    title: 'Independence',
-    text: 'Survivors step into lasting, self-directed lives — many return to mentor others.',
+    icon: 'users',
+    title: 'Sisterhood & Independence',
+    text: 'Education, employment, financial empowerment — and a Sisterhood that carries beyond our walls. She reaches back for another woman.',
   },
 ];
 
@@ -581,4 +582,73 @@ export const STORY_STATS: StatItem[] = [
   { value: 'Healing', label: 'Ongoing counseling & case management' },
   { value: 'Work', label: 'Job readiness and stable employment' },
   { value: 'Hope', label: 'A future defined by the survivor' },
+];
+
+export interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+export interface GalleryAlbum {
+  title: string;
+  date: string;
+  description: string;
+  cover: string;
+  images: GalleryImage[];
+}
+
+export const GALLERY_ALBUMS: GalleryAlbum[] = [
+  {
+    title: 'Compton Human Trafficking Task Force Meeting',
+    date: 'July 23, 2026',
+    description: 'The CHTTF convened bringing together survivors, community organizations, service providers, law enforcement, advocates, and partners committed to preventing human trafficking and supporting survivors. Sponsored by RDS.',
+    cover: '/gallery/RDSMeeting.JPG',
+    images: [
+      { src: '/gallery/RDSMeeting.JPG', alt: 'CHTTF Meeting — Speaker at the podium' },
+      { src: '/gallery/RDSMeeting2.JPG', alt: 'CHTTF Meeting — Community gathering' },
+      { src: '/gallery/RDSMeeting3.jpg', alt: 'CHTTF Meeting — Task force partners' },
+      { src: '/gallery/RDSMeeting5.JPG', alt: 'CHTTF Meeting — Collaboration session' },
+      { src: '/gallery/RDSMeeting6.JPG', alt: 'CHTTF Meeting — Community engagement' },
+      { src: '/gallery/RDSMeeting7.jpg', alt: 'CHTTF Meeting — Partner introductions' },
+      { src: '/gallery/RDSMeeting8.JPG', alt: 'CHTTF Meeting — Attendee discussion' },
+      { src: '/gallery/RDSMeeting9.jpg', alt: 'CHTTF Meeting — Group session' },
+      { src: '/gallery/RDSMeeting10.JPG', alt: 'CHTTF Meeting — Resource sharing' },
+      { src: '/gallery/RDSMeeting11.jpg', alt: 'CHTTF Meeting — Panel discussion' },
+      { src: '/gallery/RDSMeeting12.jpg', alt: 'CHTTF Meeting — Community partners' },
+      { src: '/gallery/RDSMeeting13.JPG', alt: 'CHTTF Meeting — Survivor voices' },
+      { src: '/gallery/RDSMeeting14.JPG', alt: 'CHTTF Meeting — Advocacy session' },
+      { src: '/gallery/RDSMeeting15.JPG', alt: 'CHTTF Meeting — Network building' },
+      { src: '/gallery/RDSMeeting16.JPG', alt: 'CHTTF Meeting — Collaborative workspace' },
+      { src: '/gallery/RDSMeeting17.JPG', alt: 'CHTTF Meeting — Participant engagement' },
+      { src: '/gallery/RDSMeeting18.JPG', alt: 'CHTTF Meeting — Service providers' },
+      { src: '/gallery/RDSMeeting19.JPG', alt: 'CHTTF Meeting — Community support' },
+      { src: '/gallery/RDSMeeting20.JPG', alt: 'CHTTF Meeting — Partner presentations' },
+      { src: '/gallery/RDSMeeting21.JPG', alt: 'CHTTF Meeting — Team collaboration' },
+      { src: '/gallery/RDSMeeting22.JPG', alt: 'CHTTF Meeting — Resource coordination' },
+      { src: '/gallery/RDSMeeting23.jpg', alt: 'CHTTF Meeting — Group photo' },
+      { src: '/gallery/RDSMeeting24.JPG', alt: 'CHTTF Meeting — Leadership session' },
+      { src: '/gallery/RDSMeeting25.JPG', alt: 'CHTTF Meeting — Awareness building' },
+      { src: '/gallery/RDSMeeting26.jpg', alt: 'CHTTF Meeting — Community dialogue' },
+      { src: '/gallery/RDSMeeting27.jpg', alt: 'CHTTF Meeting — Advocacy and support' },
+      { src: '/gallery/RDSMeeting28.JPG', alt: 'CHTTF Meeting — Partner networking' },
+      { src: '/gallery/RDSMeeting29.JPG', alt: 'CHTTF Meeting — Outreach discussion' },
+      { src: '/gallery/RDSMeeting30.JPG', alt: 'CHTTF Meeting — Prevention strategies' },
+      { src: '/gallery/RDSMeeting32.JPG', alt: 'CHTTF Meeting — Survivor empowerment' },
+      { src: '/gallery/RDSMeeting33.JPG', alt: 'CHTTF Meeting — Faith community partners' },
+      { src: '/gallery/RDSMeeting34.JPG', alt: 'CHTTF Meeting — Law enforcement collaboration' },
+      { src: '/gallery/RDSMeeting35.JPG', alt: 'CHTTF Meeting — Mental health advocacy' },
+      { src: '/gallery/RDSMeeting36.JPG', alt: 'CHTTF Meeting — Education partners' },
+      { src: '/gallery/RDSMeeting37.JPG', alt: 'CHTTF Meeting — Workforce development' },
+      { src: '/gallery/RDSMeeting38.jpg', alt: 'CHTTF Meeting — Housing resources' },
+      { src: '/gallery/RDSMeeting39.JPG', alt: 'CHTTF Meeting — Safety planning' },
+      { src: '/gallery/RDSMeeting40.JPG', alt: 'CHTTF Meeting — Community leaders' },
+      { src: '/gallery/RDSMeeting41.JPG', alt: 'CHTTF Meeting — Shared vision' },
+      { src: '/gallery/RDSMeeting42.JPG', alt: 'CHTTF Meeting — Closing remarks' },
+      { src: '/gallery/RDSMeeting43.JPG', alt: 'CHTTF Meeting — Together we complete the picture' },
+      { src: '/gallery/RDSMeeting44.jpg', alt: 'CHTTF Meeting — Collaborative commitment' },
+      { src: '/gallery/RDSMeeting45.JPG', alt: 'CHTTF Meeting — United community' },
+      { src: '/gallery/RDSMeeting46.JPG', alt: 'CHTTF Meeting — Every piece matters' },
+      { src: '/gallery/RDSMeeting47.JPG', alt: 'CHTTF Meeting — Building connections' },
+    ],
+  },
 ];

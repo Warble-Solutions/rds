@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ModalProvider } from '@/components/ModalContext';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,10 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${playfair.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        <ScrollReveal />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ModalProvider>
+          <ScrollReveal />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );

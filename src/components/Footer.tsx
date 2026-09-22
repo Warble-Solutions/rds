@@ -1,11 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { RdsLogo, PinIcon, MailIcon, PhoneIcon } from './Icons';
+import Image from 'next/image';
+import { PinIcon, MailIcon, PhoneIcon } from './Icons';
 import { NAV_LINKS } from '@/data/content';
+import { useModal } from '@/components/ModalContext';
 
 export function Footer() {
+  const { openDonateModal } = useModal();
+  const [subscribed, setSubscribed] = useState(false);
+  const [subEmail, setSubEmail] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (subEmail) {
+      setSubscribed(true);
+    }
+  };
+
   return (
     <footer className="bg-forest-950 text-sand-50 border-t border-white/10 mt-auto">
       {/* Newsletter Banner */}
@@ -19,26 +32,34 @@ export function Footer() {
               Monthly updates on events, programs, and ways to help — no spam, ever.
             </p>
           </div>
-          <form
-            className="flex w-full lg:w-auto gap-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Thank you for subscribing!');
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Your email address"
-              required
-              className="flex-1 lg:w-80 rounded-full bg-white/10 border border-white/15 px-5 py-3 text-sm text-sand-50 placeholder:text-sand-100/50 outline-none focus:border-olive-400"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-6 py-3 transition-colors whitespace-nowrap"
+          {subscribed ? (
+            <div className="flex items-center gap-2.5 bg-leaf-600/20 text-olive-400 border border-leaf-600/40 px-6 py-3 rounded-full text-sm font-semibold animate-fadeIn">
+              <svg className="h-5 w-5 text-olive-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Thank you! You are subscribed to RDS updates.</span>
+            </div>
+          ) : (
+            <form
+              className="flex w-full lg:w-auto gap-3"
+              onSubmit={handleSubscribe}
             >
-              Subscribe
-            </button>
-          </form>
+              <input
+                type="email"
+                placeholder="Your email address"
+                required
+                value={subEmail}
+                onChange={(e) => setSubEmail(e.target.value)}
+                className="flex-1 lg:w-80 rounded-full bg-white/10 border border-white/15 px-5 py-3 text-sm text-sand-50 placeholder:text-sand-100/50 outline-none focus:border-olive-400"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-6 py-3 transition-colors whitespace-nowrap cursor-pointer"
+              >
+                Subscribe
+              </button>
+            </form>
+          )}
         </div>
       </div>
 
@@ -47,8 +68,13 @@ export function Footer() {
         {/* Col 1: About & Socials */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <RdsLogo className="h-10 w-auto" />
-            <span className="font-display text-lg text-sand-50">RDS</span>
+            <Image
+              src="/logo/rds-logo.webp"
+              alt="Restoration Diversion Services"
+              width={160}
+              height={80}
+              className="h-12 w-auto object-contain"
+            />
           </div>
           <p className="text-sm text-sand-100/70 leading-relaxed mb-5">
             Restoration Diversion Services — helping survivors of human trafficking in Compton, CA find safety, support, and a new beginning since 2009.
@@ -101,7 +127,7 @@ export function Footer() {
           <ul className="space-y-3.5 text-sm text-sand-100/80">
             <li className="flex items-start gap-2.5">
               <PinIcon className="h-4 w-4 mt-0.5 text-olive-400 flex-shrink-0" />
-              <span>Drop-In Center · Long Beach Blvd, Compton, CA</span>
+              <span>Drop-In Center · 208 N. Long Beach Blvd, Compton, CA 90221</span>
             </li>
             <li className="flex items-start gap-2.5">
               <MailIcon className="h-4 w-4 mt-0.5 text-olive-400 flex-shrink-0" />
@@ -111,7 +137,7 @@ export function Footer() {
             </li>
             <li className="flex items-start gap-2.5">
               <PhoneIcon className="h-4 w-4 mt-0.5 text-olive-400 flex-shrink-0" />
-              <span>(555) 208-0100 · 24/7 confidential</span>
+              <span>(310) 639-1695 · 24/7 confidential</span>
             </li>
           </ul>
         </div>
@@ -122,12 +148,13 @@ export function Footer() {
           <p className="text-sm text-sand-100/70 mb-4 leading-relaxed">
             Your gift funds shelter, counseling, legal aid, and job training for survivors.
           </p>
-          <a
-            href="#donate"
-            className="inline-block rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-6 py-3 transition-colors"
+          <button
+            type="button"
+            onClick={() => openDonateModal()}
+            className="inline-block rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-6 py-3 transition-colors cursor-pointer"
           >
             Donate Now
-          </a>
+          </button>
         </div>
       </div>
 

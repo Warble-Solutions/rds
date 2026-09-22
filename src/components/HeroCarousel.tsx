@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { HERO_SLIDES } from '@/data/content';
+import { useModal } from '@/components/ModalContext';
 
 export function HeroCarousel() {
   const [current, setCurrent] = useState(0);
+  const { openDonateModal } = useModal();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,17 +53,25 @@ export function HeroCarousel() {
                   {slide.text}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  {slide.primary.href ? (
+                  {slide.primary.href === '#donate' ? (
+                    <button
+                      type="button"
+                      onClick={() => openDonateModal()}
+                      className="rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer shadow-md"
+                    >
+                      {slide.primary.label}
+                    </button>
+                  ) : slide.primary.href ? (
                     <a
                       href={slide.primary.href}
-                      className="rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors"
+                      className="rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer shadow-md"
                     >
                       {slide.primary.label}
                     </a>
                   ) : (
                     <Link
                       href={slide.primary.to || '/'}
-                      className="rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors"
+                      className="rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer shadow-md"
                     >
                       {slide.primary.label}
                     </Link>

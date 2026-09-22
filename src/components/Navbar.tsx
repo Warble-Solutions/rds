@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { RdsLogo } from './Icons';
 import { NAV_LINKS } from '@/data/content';
+import { useModal } from '@/components/ModalContext';
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { openDonateModal } = useModal();
 
   return (
     <header className="sticky top-0 z-50 bg-forest-950/95 backdrop-blur border-b border-white/10">
@@ -18,11 +20,14 @@ export function Navbar() {
           className="flex items-center gap-3"
           onClick={() => setMenuOpen(false)}
         >
-          <RdsLogo className="h-12 w-auto" />
-          <span className="font-display text-sand-50 text-lg sm:text-xl leading-tight text-left">
-            Restoration
-            <br className="hidden sm:block" /> Diversion Services
-          </span>
+          <Image
+            src="/logo/rds-logo.webp"
+            alt="Restoration Diversion Services"
+            width={200}
+            height={100}
+            className="h-14 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -43,17 +48,18 @@ export function Navbar() {
               </Link>
             );
           })}
-          <a
-            href="#donate"
-            className="rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-5 py-2.5 transition-colors"
+          <button
+            type="button"
+            onClick={() => openDonateModal()}
+            className="rounded-full bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold px-5 py-2.5 transition-colors cursor-pointer"
           >
             Donate
-          </a>
+          </button>
         </nav>
 
         {/* Mobile menu toggle */}
         <button
-          className="lg:hidden text-sand-50 p-2"
+          className="lg:hidden text-sand-50 p-2 cursor-pointer"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
@@ -92,13 +98,16 @@ export function Navbar() {
               </Link>
             );
           })}
-          <a
-            href="#donate"
-            onClick={() => setMenuOpen(false)}
-            className="mt-3 text-center rounded-full bg-clay-500 text-white font-semibold px-5 py-2.5"
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              openDonateModal();
+            }}
+            className="mt-3 text-center rounded-full bg-clay-500 text-white font-semibold px-5 py-2.5 cursor-pointer"
           >
             Donate
-          </a>
+          </button>
         </nav>
       )}
     </header>

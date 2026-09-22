@@ -23,9 +23,12 @@ import {
   PhoneIcon,
   BookIcon,
 } from '@/components/Icons';
+import { useModal } from '@/components/ModalContext';
 
 export default function HomePage() {
   const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const [contactSubmitted, setContactSubmitted] = useState(false);
+  const { openDonateModal, openVolunteerModal, openBlogModal } = useModal();
 
   return (
     <div>
@@ -39,7 +42,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-14 items-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1000&q=80"
+          src="/images/hero-sisterhood.jpg"
           alt="Women supporting one another"
           className="rounded-3xl overflow-hidden shadow-xl order-2 lg:order-1 h-96 w-full object-cover"
         />
@@ -48,13 +51,13 @@ export default function HomePage() {
             Who We Are
           </p>
           <h2 className="font-display text-3xl sm:text-4xl mb-5 text-forest-950">
-            A Compton nonprofit walking with survivors since 2009.
+            Located on the Blade, meeting women where they are since 2009.
           </h2>
           <p className="text-forest-900/80 leading-relaxed mb-4">
-            Restoration Diversion Services helps victims and survivors of human trafficking rebuild lives of dignity and resilience through trauma-informed, holistic care — connecting each person to housing, medical care, legal assistance, and counseling.
+            Restoration Diversion Services is a community-based nonprofit providing trauma-informed services to victims and survivors of human trafficking and commercial sexual exploitation throughout Los Angeles County, with our Drop-In Center in Compton serving as the primary hub.
           </p>
           <p className="text-forest-900/80 leading-relaxed mb-7">
-            With educational resources, practical tools, and compassionate guidance, we believe knowledge drives change — and every survivor can reclaim control of a fulfilling future.
+            For women being trafficked along Long Beach Boulevard, life can feel like walking on a razor&apos;s edge. RDS intentionally placed our Drop-In Center within this community — we don&apos;t ask women to navigate an unfamiliar system before they can receive help.
           </p>
           <Link
             href="/about"
@@ -76,10 +79,10 @@ export default function HomePage() {
               Our Mission
             </p>
             <h3 className="font-display text-2xl mb-4">
-              Empowering survivors on their path to freedom
+              Restore · Empower · Transform
             </h3>
             <p className="text-sand-100/80 leading-relaxed">
-              To equip survivors of human trafficking with the resources, advocacy, and compassionate care they need to move from crisis to lasting self-sufficiency.
+              To equip women impacted by human trafficking with the resources, advocacy, and compassionate care they need to move from crisis to safety, stability, economic empowerment, independence, and leadership.
             </p>
           </div>
 
@@ -91,10 +94,10 @@ export default function HomePage() {
               Our Vision
             </p>
             <h3 className="font-display text-2xl mb-4">
-              A Compton where every survivor finds a way forward
+              A world free from human trafficking
             </h3>
             <p className="text-sand-100/80 leading-relaxed">
-              A community where survivors are met with resources instead of judgment, where the path out of exploitation is visible, and independence is within everyone&apos;s reach.
+              A world where every survivor is safe, empowered, restored, and thriving — where the path out of exploitation is visible, and independence is within everyone&apos;s reach.
             </p>
           </div>
         </div>
@@ -245,23 +248,24 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <a
-            href="mailto:Dropin@restorationdiversion.org?subject=Volunteer Interest"
-            className="inline-block rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors"
+          <button
+            type="button"
+            onClick={() => openVolunteerModal()}
+            className="inline-block rounded-full bg-clay-500 hover:bg-clay-600 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer shadow-md"
           >
             Apply to Volunteer
-          </a>
+          </button>
         </div>
         <div className="grid grid-cols-2 gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=600&q=80"
+            src="/gallery/RDSMeeting7.jpg"
             alt=""
             className="rounded-2xl h-72 w-full object-cover"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=600&q=80"
+            src="/gallery/RDSMeeting12.jpg"
             alt=""
             className="rounded-2xl h-72 w-full object-cover mt-10"
           />
@@ -272,7 +276,7 @@ export default function HomePage() {
       <section className="relative bg-forest-950 text-sand-50 py-24 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=60"
+          src="/images/hero-street-outreach.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
@@ -333,7 +337,8 @@ export default function HomePage() {
               <div
                 key={article.title}
                 data-reveal={String(idx + 1)}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer"
+                onClick={() => openBlogModal(article)}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer flex flex-col"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -341,13 +346,18 @@ export default function HomePage() {
                   alt=""
                   className="h-44 w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="p-6">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-leaf-600 mb-3">
-                    <BookIcon className="h-4 w-4" /> {article.tag}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-leaf-600 mb-3">
+                      <BookIcon className="h-4 w-4" /> {article.tag}
+                    </span>
+                    <h3 className="font-display text-lg text-forest-950 leading-snug mb-4">
+                      {article.title}
+                    </h3>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-leaf-600 group-hover:text-forest-950 transition-colors mt-auto">
+                    Read Story →
                   </span>
-                  <h3 className="font-display text-lg text-forest-950 leading-snug">
-                    {article.title}
-                  </h3>
                 </div>
               </div>
             ))}
@@ -364,14 +374,23 @@ export default function HomePage() {
           <p className="max-w-xl mx-auto text-white/90 leading-relaxed mb-8">
             Your support funds shelter, counseling, legal aid, and job training for survivors rebuilding their lives in Compton and beyond.
           </p>
-          <a
-            href="https://www.paypal.com"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block rounded-full bg-white text-forest-950 font-semibold px-8 py-3.5 hover:bg-sand-100 transition-colors"
-          >
-            Donate via PayPal
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => openDonateModal()}
+              className="inline-block rounded-full bg-white text-forest-950 font-semibold px-8 py-3.5 hover:bg-sand-100 transition-colors shadow-lg cursor-pointer"
+            >
+              Donate Now
+            </button>
+            <a
+              href="https://www.paypal.com"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block rounded-full border border-white/40 hover:bg-white/10 text-white font-semibold px-8 py-3.5 transition-colors"
+            >
+              Donate via PayPal
+            </a>
+          </div>
         </div>
       </section>
 
@@ -394,7 +413,7 @@ export default function HomePage() {
                   <PinIcon className="h-5 w-5" />
                 </span>
                 <span className="text-forest-950/85">
-                  Long Beach Boulevard, Compton, CA
+                  208 N. Long Beach Blvd, Compton, CA 90221
                 </span>
               </div>
               <div className="flex items-center gap-4">
@@ -413,61 +432,86 @@ export default function HomePage() {
                   <PhoneIcon className="h-5 w-5" />
                 </span>
                 <span className="text-forest-950/85">
-                  (555) 208-0100 · 24/7 confidential line
+                  (310) 639-1695 · 24/7 confidential line
                 </span>
               </div>
             </div>
           </div>
 
-          <form
-            className="bg-white rounded-3xl p-8 shadow-sm space-y-5"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert('Message received! We will be in touch shortly.');
-            }}
-          >
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label className="block text-sm font-semibold text-forest-950 mb-1.5">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
-                  placeholder="Your name"
-                />
+          {contactSubmitted ? (
+            <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm text-center flex flex-col items-center justify-center animate-fadeIn">
+              <div className="h-16 w-16 rounded-full bg-leaf-600/10 text-leaf-600 flex items-center justify-center mb-4">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-              <div>
-                <label className="block text-sm font-semibold text-forest-950 mb-1.5">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
-                  placeholder="you@email.com"
-                />
+              <h3 className="font-display text-2xl text-forest-950 mb-2">Message Sent Confidentially</h3>
+              <p className="text-forest-900/80 leading-relaxed text-sm max-w-sm mb-6">
+                Thank you for reaching out. An RDS care team member will review your message and respond with utmost discretion.
+              </p>
+              <div className="bg-sand-100 rounded-2xl p-4 text-xs text-forest-900/70 text-left w-full max-w-sm mb-6 space-y-1">
+                <p><strong>Immediate crisis:</strong> Call (310) 639-1695 (24/7)</p>
+                <p><strong>Walk-In:</strong> 208 N. Long Beach Blvd, Compton, CA</p>
               </div>
+              <button
+                type="button"
+                onClick={() => setContactSubmitted(false)}
+                className="rounded-full bg-forest-950 hover:bg-forest-900 text-white text-xs font-semibold px-6 py-2.5 transition-colors cursor-pointer"
+              >
+                Send Another Message
+              </button>
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-forest-950 mb-1.5">
-                Message
-              </label>
-              <textarea
-                rows={4}
-                required
-                className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
-                placeholder="How can we help?"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-forest-950 hover:bg-forest-900 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer"
+          ) : (
+            <form
+              className="bg-white rounded-3xl p-8 shadow-sm space-y-5"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setContactSubmitted(true);
+              }}
             >
-              Send Message
-            </button>
-          </form>
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-sm font-semibold text-forest-950 mb-1.5">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-forest-950 mb-1.5">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
+                    placeholder="you@email.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-forest-950 mb-1.5">
+                  Message
+                </label>
+                <textarea
+                  rows={4}
+                  required
+                  className="w-full rounded-xl border border-forest-950/15 px-4 py-2.5 outline-none focus:border-leaf-600"
+                  placeholder="How can we help?"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full rounded-full bg-forest-950 hover:bg-forest-900 text-white font-semibold px-7 py-3.5 transition-colors cursor-pointer"
+              >
+                Send Message
+              </button>
+            </form>
+          )}
         </div>
       </section>
     </div>
