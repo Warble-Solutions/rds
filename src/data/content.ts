@@ -811,6 +811,13 @@ export const NEWS_ARTICLES = [
     img: '/gallery/RDSMeeting42.JPG',
     summary: 'Sometimes the most powerful support is quiet. Practical guidance on showing care, creating safety, and being present for survivors in everyday moments.',
   },
+  {
+    title: 'Inside "Ending The Game": What Our Diversion Curriculum Teaches',
+    tag: 'Programs',
+    date: 'November 2025',
+    img: '/gallery/RDSMeeting16.JPG',
+    summary: 'A closer look at the "Ending The Game" curriculum — the evidence-based program at the heart of the Survivor Diversion Program that helps participants build self-sufficiency through mentorship and education.',
+  },
 ];
 
 /* ─────────────────────────────────────────────────────────────
