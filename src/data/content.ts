@@ -9,7 +9,9 @@ export const NAV_LINKS: NavLink[] = [
   { to: '/about', label: 'About Us' },
   { to: '/events', label: 'Events' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/stories', label: "Survivors' Stories" },
+  { to: "/stories", label: "Survivors' Stories" },
+  { to: '/donate', label: 'Donate' },
+  { to: '/contact', label: 'Contact Us' },
 ];
 
 export interface HeroSlide {
@@ -315,10 +317,10 @@ export interface TeamMember {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Pamela Bryant',
+    name: 'Pamela A. Bryant',
     role: 'Executive Director',
     img: '/gallery/RDSMeeting.JPG',
-    bio: 'Leads the RDS mission and community partnerships, guiding the organization\'s strategy and vision for survivor empowerment.',
+    bio: 'Leads the RDS mission and community partnerships, guiding the organization\'s strategy and vision for survivor empowerment with two decades of nonprofit leadership.',
   },
   {
     name: 'Deatra Handy, MPA',
@@ -331,6 +333,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: 'CHTTF Chairperson & RDS Program Director',
     img: '/gallery/RDSMeeting15.JPG',
     bio: 'Chairs the Compton Human Trafficking Task Force and serves as RDS Program Director, uniting survivors, law enforcement, and community partners.',
+  },
+  {
+    name: 'Keyla Brown',
+    role: 'Lead Case Manager',
+    img: '/gallery/RDSMeeting14.JPG',
+    bio: 'Walks with each survivor one-on-one — from first intake to independent living, providing individualized case management and safety planning.',
   },
 ];
 
@@ -649,6 +657,263 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
       { src: '/gallery/RDSMeeting45.JPG', alt: 'CHTTF Meeting — United community' },
       { src: '/gallery/RDSMeeting46.JPG', alt: 'CHTTF Meeting — Every piece matters' },
       { src: '/gallery/RDSMeeting47.JPG', alt: 'CHTTF Meeting — Building connections' },
+     ],
+  },
+];
+
+/* ─────────────────────────────────────────────────────────────
+   Donate Page Data
+───────────────────────────────────────────────────────────── */
+
+export const DONATE_IMPACT_STATS: StatItem[] = [
+  { value: '$25', label: 'Provides a hot meal, hygiene kit, and safety resources for a drop-in guest' },
+  { value: '$50', label: 'Covers emergency transit and immediate crisis response supplies' },
+  { value: '$100', label: 'Funds one trauma-informed counseling session or case management visit' },
+  { value: '$250', label: 'Sponsors one night of emergency hotel lodging for a survivor leaving the Blade' },
+];
+
+export const DONATE_TIERS = [
+  {
+    amount: 25,
+    title: 'Welcome Kit',
+    icon: 'heartHand',
+    impact: 'Provides a hot meal, hygiene essentials, fresh clothing, and a warm welcome for a woman walking through our doors for the very first time.',
+  },
+  {
+    amount: 50,
+    title: 'Safety & Transit',
+    icon: 'compass',
+    impact: 'Covers emergency transportation, bus passes, and immediate safety resources so a woman can reach shelter or services without returning to risk.',
+  },
+  {
+    amount: 100,
+    title: 'Healing Session',
+    icon: 'heartShield',
+    impact: 'Funds one full session of trauma-informed counseling in the Serenity Room, or a full day of individualized case management support.',
+  },
+  {
+    amount: 250,
+    title: 'Emergency Lodging',
+    icon: 'homeHeart',
+    impact: 'Sponsors one night of safe emergency hotel lodging when a woman decides to leave trafficking — she never has to go back out again.',
+  },
+];
+
+export const WAYS_TO_GIVE = [
+  {
+    title: 'One-Time Gift',
+    icon: 'heartHand',
+    text: 'Make an immediate impact. Every dollar reaches survivors directly through meals, shelter, counseling, and crisis response.',
+  },
+  {
+    title: 'Monthly Sustainer',
+    icon: 'plant',
+    text: 'Become a recurring supporter. Monthly gifts provide the stable funding that lets RDS plan ahead and serve more women consistently.',
+  },
+  {
+    title: 'Material Drives',
+    icon: 'building',
+    text: 'Donate clothing, hygiene products, school supplies, or gift cards. Our Drop-In Center needs are ongoing and always welcomed.',
+  },
+  {
+    title: 'Corporate & Faith Sponsorship',
+    icon: 'users',
+    text: 'Partner with RDS as a business, church, or civic organization. Sponsor events, fund programs, or host awareness campaigns.',
+  },
+];
+
+export const DONOR_TESTIMONIALS = [
+  {
+    quote: 'Knowing that my monthly donation helps keep the Drop-In Center doors open gives me a deep sense of purpose.',
+    name: 'Community Supporter',
+    role: 'Monthly Sustainer since 2023',
+  },
+  {
+    quote: 'Our church partnered with RDS for a holiday drive and saw firsthand the dignity they bring to every woman who walks in.',
+    name: 'Faith Community Partner',
+    role: 'Annual Sponsor',
+  },
+  {
+    quote: 'I give because RDS doesn\'t just offer services — they offer sisterhood. That changes everything.',
+    name: 'Individual Donor',
+    role: 'Recurring Donor',
+  },
+];
+
+export const FUND_ALLOCATION = [
+  { label: 'Drop-In Center Operations', percentage: 35, color: 'bg-leaf-600' },
+  { label: 'Emergency Housing & Lodging', percentage: 25, color: 'bg-clay-500' },
+  { label: 'Education & Employment', percentage: 20, color: 'bg-olive-500' },
+  { label: 'Street Outreach & Task Force', percentage: 15, color: 'bg-forest-700' },
+  { label: 'Administration & Governance', percentage: 5, color: 'bg-sand-400' },
+];
+
+/* ─────────────────────────────────────────────────────────────
+   News & Press Data
+───────────────────────────────────────────────────────────── */
+
+export const NEWS_ARTICLES = [
+  {
+    title: 'More Than a Makeover: A Reflection of the Woman Within',
+    tag: 'Press Feature',
+    date: 'June 2026',
+    img: '/gallery/RDSMeeting23.jpg',
+    href: 'https://citypridemagazine.com/more-than-a-makeover-a-reflection-of-the-woman-within/',
+    summary: 'CityPride Magazine spotlights the transformative power of self-care and identity at the RDS Drop-In Center — where a makeover can become the first step toward reclaiming who you are.',
+    featured: true,
+  },
+  {
+    title: 'CHTTF Convenes: Recognize, Respond, Restore',
+    tag: 'Task Force',
+    date: 'July 2026',
+    img: '/gallery/RDSMeeting12.jpg',
+    summary: 'The Compton Human Trafficking Task Force brought together survivors, law enforcement, and community partners to strengthen collaborative anti-trafficking response across the region.',
+  },
+  {
+    title: 'RDS Sisterhood: Building Bonds Beyond the Program',
+    tag: 'Community',
+    date: 'May 2026',
+    img: '/images/hero-sisterhood.jpg',
+    summary: 'How the RDS Sisterhood is replacing isolation with connection, celebration, and peer mentorship for women at every stage of their journey.',
+  },
+  {
+    title: 'Compton College Partnership Expands Enrollment Support',
+    tag: 'Education',
+    date: 'April 2026',
+    img: '/images/hero-education.jpg',
+    summary: 'RDS deepens its relationship with Compton College, offering one-on-one enrollment counseling, FAFSA navigation, and student-support services for survivors.',
+  },
+  {
+    title: 'Night Outreach on The Blade: Meeting Women Where They Are',
+    tag: 'Outreach',
+    date: 'March 2026',
+    img: '/images/hero-street-outreach.jpg',
+    summary: 'A look into the RDS street outreach program — bringing food, hygiene products, safety resources, and a message of hope to high-risk areas along Long Beach Boulevard.',
+  },
+  {
+    title: 'Holiday Resource Drive Serves 80+ Families',
+    tag: 'Community',
+    date: 'December 2025',
+    img: '/gallery/RDSMeeting24.JPG',
+    summary: 'RDS and community partners distributed clothing, hygiene kits, and holiday gifts to over 80 families connected to the Drop-In Center.',
+  },
+  {
+    title: 'Recognizing the Signs: A Guide for Community Members',
+    tag: 'Awareness',
+    date: 'February 2026',
+    img: '/gallery/RDSMeeting30.JPG',
+    summary: 'Learn how to recognize the warning signs of human trafficking in your neighborhood, workplace, and community — and what to do if you suspect someone needs help.',
+  },
+  {
+    title: 'Five Ways to Support Survivors Without Saying a Word',
+    tag: 'Community',
+    date: 'January 2026',
+    img: '/gallery/RDSMeeting42.JPG',
+    summary: 'Sometimes the most powerful support is quiet. Practical guidance on showing care, creating safety, and being present for survivors in everyday moments.',
+  },
+];
+
+/* ─────────────────────────────────────────────────────────────
+   Careers Data
+───────────────────────────────────────────────────────────── */
+
+export interface CareerOpening {
+  title: string;
+  type: string;
+  location: string;
+  description: string;
+  qualifications: string[];
+}
+
+export const CAREER_OPENINGS: CareerOpening[] = [
+  {
+    title: 'Case Manager',
+    type: 'Full-Time',
+    location: 'Compton, CA — Drop-In Center',
+    description: 'Provide individualized case management, safety planning, housing navigation, and resource coordination for survivors of human trafficking.',
+    qualifications: [
+      'Bachelor\'s degree in Social Work, Psychology, or related field',
+      'Experience with trauma-informed care and crisis intervention',
+      'Bilingual (English/Spanish) preferred',
+      'Valid CA driver\'s license',
     ],
   },
+  {
+    title: 'Street Outreach Coordinator',
+    type: 'Full-Time',
+    location: 'Compton / South LA',
+    description: 'Lead outreach efforts in high-risk areas along the Blade, building trust with individuals experiencing exploitation and connecting them to services.',
+    qualifications: [
+      'Passion for community-based work and anti-trafficking advocacy',
+      'Ability to work flexible hours, including evenings',
+      'Strong interpersonal and de-escalation skills',
+      'Lived experience valued and welcomed',
+    ],
+  },
+  {
+    title: 'Volunteer & Events Coordinator',
+    type: 'Part-Time',
+    location: 'Compton, CA — Drop-In Center',
+    description: 'Recruit, train, and manage volunteers. Plan and coordinate community events, resource drives, and partnership activities.',
+    qualifications: [
+      'Event planning or volunteer coordination experience',
+      'Strong organizational and communication skills',
+      'Comfortable working with diverse populations',
+      'Proficiency in Google Workspace and social media',
+    ],
+  },
+  {
+    title: 'Mental Health Counselor (Serenity Room)',
+    type: 'Contract / Part-Time',
+    location: 'Compton, CA — Drop-In Center',
+    description: 'Provide onsite trauma-informed mental health counseling in the Serenity Room for survivors at various stages of their journey.',
+    qualifications: [
+      'Licensed MFT, LCSW, or LPCC in the State of California',
+      'Experience with trauma, PTSD, and complex trauma populations',
+      'Cultural humility and trauma-informed practice commitment',
+      'Availability for minimum 10 hours per week onsite',
+    ],
+  },
+];
+
+export const INTERNSHIP_INFO = {
+  title: 'Internships & Fellowships',
+  description: 'RDS partners with universities, community colleges, and civic organizations to offer meaningful field placement experiences. Interns contribute to real programs — from case management support to outreach — while building professional skills in a trauma-informed environment.',
+  areas: [
+    'Social Work Field Placement (BSW / MSW)',
+    'Public Health & Community Wellness',
+    'Communications & Nonprofit Marketing',
+    'Criminal Justice & Victim Advocacy',
+  ],
+};
+
+/* ─────────────────────────────────────────────────────────────
+   Resources Hub Data
+───────────────────────────────────────────────────────────── */
+
+export const RESOURCE_LINKS = [
+  {
+    title: 'Our Team & Leadership',
+    href: '/resources/team',
+    icon: 'users',
+    text: 'Meet the dedicated staff behind every RDS program — from our Executive Director to the advocates on the frontline.',
+  },
+  {
+    title: 'News & Press',
+    href: '/resources/news',
+    icon: 'book',
+    text: 'Read the latest coverage, community updates, task force reports, and media features about our work.',
+  },
+  {
+    title: 'Careers & Opportunities',
+    href: '/resources/careers',
+    icon: 'briefcase',
+    text: 'Join the RDS team. Explore open positions, internships, and fellowship opportunities making a real difference.',
+  },
+];
+
+export const RESOURCE_NAV_ITEMS = [
+  { to: '/resources/team', label: 'Our Team' },
+  { to: '/resources/news', label: 'News & Press' },
+  { to: '/resources/careers', label: 'Careers' },
 ];
