@@ -10,7 +10,6 @@ import {
   PROGRAMS,
   TIMELINE,
   VOLUNTEER_AREAS,
-  HOME_TESTIMONIALS,
   BLOG_ARTICLES,
 } from '@/data/content';
 import {
@@ -26,8 +25,8 @@ import {
 import { useModal } from '@/components/ModalContext';
 
 export default function HomePage() {
-  const [testimonialIdx, setTestimonialIdx] = useState(0);
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   const { openDonateModal, openVolunteerModal, openBlogModal } = useModal();
 
   return (
@@ -35,8 +34,8 @@ export default function HomePage() {
       {/* 1. Hero Carousel */}
       <HeroCarousel />
 
-      {/* 2. Stats Bar */}
-      <StatsBar stats={HOME_STATS} />
+      {/* 2. Floating Stats Bar */}
+      <StatsBar stats={HOME_STATS} floating />
 
       {/* 3. Who We Are */}
       <section className="mx-auto max-w-7xl px-5 sm:px-8 py-20 grid lg:grid-cols-2 gap-14 items-center">
@@ -272,52 +271,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. Success Stories Testimonial Slider */}
-      <section className="relative bg-forest-950 text-sand-50 py-24 overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hero-street-outreach.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="relative mx-auto max-w-4xl px-5 sm:px-8 text-center">
-          <p className="uppercase tracking-[0.2em] text-olive-400 text-xs font-semibold mb-4">
-            Success Stories
-          </p>
-          <svg
-            className="mx-auto mb-6 h-10 w-10 text-olive-400"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M7 7c-2.8 0-5 2.2-5 5v5h5v-5H5c0-1.1.9-2 2-2V7zm10 0c-2.8 0-5 2.2-5 5v5h5v-5h-2c0-1.1.9-2 2-2V7z" />
-          </svg>
-          <p className="font-display text-2xl sm:text-3xl leading-snug mb-4 min-h-[5rem]">
-            &ldquo;{HOME_TESTIMONIALS[testimonialIdx].quote}&rdquo;
-          </p>
-          <p className="text-sand-100/60 text-sm mb-8">
-            — {HOME_TESTIMONIALS[testimonialIdx].id}
-          </p>
-          <div className="flex justify-center gap-2.5 mb-8">
-            {HOME_TESTIMONIALS.map((t, idx) => (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => setTestimonialIdx(idx)}
-                aria-label={`Show testimonial ${idx + 1}`}
-                className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                  idx === testimonialIdx
-                    ? 'w-8 bg-olive-400'
-                    : 'w-2.5 bg-white/30 hover:bg-white/50'
-                }`}
-              />
+      {/* 9. Testimonial Marquee Grid */}
+      <section className="bg-forest-950 text-sand-50 py-24 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="text-center mb-14">
+            <p className="uppercase tracking-[0.2em] text-olive-400 text-xs font-semibold mb-4">
+              In Their Own Words
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl text-white">
+              Anonymous Voices of Resilience
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              'RDS gave me back the one thing I thought I\u2019d lost forever \u2014 hope.',
+              'The staff treated me like a human being, not a case number. That changed everything.',
+              'I walked in broken. I walked out with a plan, a purpose, and a future.',
+              'They didn\u2019t just help me escape \u2014 they helped me build a life worth living.',
+              'For the first time in years, I feel safe. I feel free. I feel like myself again.',
+              'My case manager believed in me before I believed in myself.',
+            ].map((quote, idx) => (
+              <div
+                key={idx}
+                data-reveal={String((idx % 3) + 1)}
+                className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:bg-white/8 transition-colors"
+              >
+                <svg
+                  className="h-8 w-8 text-olive-400/60 mb-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M7 7c-2.8 0-5 2.2-5 5v5h5v-5H5c0-1.1.9-2 2-2V7zm10 0c-2.8 0-5 2.2-5 5v5h5v-5h-2c0-1.1.9-2 2-2V7z" />
+                </svg>
+                <p className="text-sand-100/90 leading-relaxed text-sm">
+                  &ldquo;{quote}&rdquo;
+                </p>
+                <p className="text-sand-100/40 text-xs mt-4">\u2014 Survivor</p>
+              </div>
             ))}
           </div>
-          <Link
-            href="/stories"
-            className="inline-block rounded-full border border-sand-50/30 hover:border-sand-50/60 font-semibold px-7 py-3.5 transition-colors"
-          >
-            Read Survivors&apos; Stories
-          </Link>
+          <div className="text-center mt-10">
+            <Link
+              href="/stories"
+              className="inline-block rounded-full border border-sand-50/30 hover:border-sand-50/60 font-semibold px-7 py-3.5 transition-colors"
+            >
+              Read Survivors&apos; Stories
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -391,6 +391,48 @@ export default function HomePage() {
               Donate via PayPal
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* 11b. Newsletter Signup */}
+      <section className="bg-forest-950 text-sand-50 py-20">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+          <p className="uppercase tracking-[0.2em] text-olive-400 text-xs font-semibold mb-4">
+            Stay Connected
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl text-white mb-4">
+            Join Our Community
+          </h2>
+          <p className="text-sand-100/75 leading-relaxed mb-8 max-w-xl mx-auto text-sm">
+            Subscribe to our newsletter for the latest updates, event invitations, and stories of impact from the frontlines of restoration.
+          </p>
+          {newsletterSubmitted ? (
+            <div className="bg-white/10 rounded-2xl p-6 border border-white/10 max-w-md mx-auto">
+              <p className="text-olive-400 font-semibold">✓ You&apos;re subscribed!</p>
+              <p className="text-sand-100/60 text-xs mt-1">Thank you for joining our community.</p>
+            </div>
+          ) : (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setNewsletterSubmitted(true);
+              }}
+              className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+            >
+              <input
+                type="email"
+                required
+                placeholder="Enter your email address"
+                className="flex-1 px-5 py-3.5 rounded-full bg-white text-forest-950 outline-none placeholder:text-forest-900/40 text-sm"
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-leaf-600 hover:bg-leaf-700 text-white font-semibold px-8 py-3.5 transition-colors cursor-pointer text-sm whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
