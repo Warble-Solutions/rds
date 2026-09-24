@@ -8,9 +8,8 @@ export const NAV_LINKS: NavLink[] = [
   { to: '/program', label: 'Program' },
   { to: '/about', label: 'About Us' },
   { to: '/events', label: 'Events' },
-  { to: '/gallery', label: 'Gallery' },
   { to: "/stories", label: "Survivors' Stories" },
-  { to: '/donate', label: 'Donate' },
+  { to: '/get-help', label: 'Get Help' },
   { to: '/contact', label: 'Contact Us' },
 ];
 
@@ -923,4 +922,6 @@ export const RESOURCE_NAV_ITEMS = [
   { to: '/resources/team', label: 'Our Team' },
   { to: '/resources/news', label: 'News & Press' },
   { to: '/resources/careers', label: 'Careers' },
+  { to: '/gallery', label: 'Gallery' },
+  { to: '/donate', label: 'Donate' },
 ];

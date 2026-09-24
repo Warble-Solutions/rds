@@ -13,7 +13,7 @@ export function Navbar() {
   const pathname = usePathname();
   const { openDonateModal } = useModal();
 
-  const isResourcesActive = pathname.startsWith('/resources');
+  const isResourcesActive = pathname.startsWith('/resources') || pathname === '/gallery' || pathname === '/donate';
 
   return (
     <header className="sticky top-0 z-50 bg-forest-950/95 backdrop-blur border-b border-white/10">
